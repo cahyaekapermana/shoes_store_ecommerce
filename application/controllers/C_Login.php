@@ -11,7 +11,6 @@
             parent::__construct();
             //Do your magic here
             $this->load->model('M_login');
-            $this->load->library('form_validation');
 
         }
         
@@ -20,18 +19,35 @@
             $this->load->view('template/header');
             $this->load->view('Modul_login/V_login');
             $this->load->view('template/footer');
+            
         }
 
-        public function c_aksi_login()
-        {
-            // jika form login disubmit
-            if($this->input->post()){
-                if($this->M_login->M_aksi_login()) redirect(site_url('C_Home'));
+        function aksi_login(){
+
+            $c_username = $this->input->post('f_username');
+            $c_password = $this->input->post('f_pass');
+            // Load function model login
+            $cek = $this->M_login->M_aksi_login($c_username, $c_password);
+
+            if ($cek) {
+                # code... 
+                foreach($cek as $row){
+
+                    $this->session->set_userdata('user',$row->username);
+                    $this->session->set_userdata('level',$row->level);
+
+                    if ($this->session->userdata('level')=="admin") {
+
+                        redirect('C_Home');   
+
+                    }elseif($this->session->userdata('level')=="customer"){
+
+                        redirect('');
+                    }
+                }                                                                               
+            }else{
+                redirect('C_Login');
             }
-
-            // tampilkan halaman login
-            $this->load->view("Modul_home/V_home.php");
-
         }
 
         function logout(){

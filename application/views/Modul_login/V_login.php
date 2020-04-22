@@ -33,7 +33,7 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 
-				<form action="<?php echo site_url('C_Login/c_aksi_login')?>" class="login100-form validate-form" >
+				<form action="<?php echo site_url('C_Login/aksi_login')?>" class="login100-form validate-form" method="POST">
 					<span class="login100-form-title p-b-43">
 						Pandaan Footwear Store Login
 					</span>
