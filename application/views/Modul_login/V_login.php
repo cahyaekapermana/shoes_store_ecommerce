@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login V18</title>
+	<title>Login to Pandaan Footwear Store</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -33,21 +33,21 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 
-				<form class="login100-form validate-form">
+				<form action="<?php echo site_url('C_Login/c_aksi_login')?>" class="login100-form validate-form" >
 					<span class="login100-form-title p-b-43">
-						Login Local Pandaan Footwear 
+						Pandaan Footwear Store Login
 					</span>
 					
 					
 					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="username">
+						<input class="input100" type="text" name="f_username">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Username</span>
 					</div>
 					
 					
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="pass">
+						<input class="input100" type="password" name="f_pass">
 						<span class="focus-input100"></span>
 						<span class="label-input100">Password</span>
 					</div>
@@ -70,15 +70,18 @@
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" style="background-color: #353b48;">
-							Login
+							Masuk
 						</button>
 					</div>
 					
-					<div class="text-center p-t-46 p-b-20">
-						<span class="txt2">
-							or sign up using
-						</span>
+					<br>
+					<div>
+						<p style="font-size:18px">Belum punya akun? <a style="font-size:18px; color: #40739e;" href="">Daftar Sekarang</a></p>
 					</div>
+					
+					<br>
+					<center><span>Follow Us On</span></center>
+					<br>
 
 					<div class="login100-form-social flex-c-m">
 						<a href="#" class="login100-form-social-item flex-c-m bg1 m-r-5">
