@@ -6,7 +6,7 @@
     <title>Home</title>
 </head>
 <body>
-    <h1>Dah Login</h1>
+    <h1>Selamat Datang</h1>
     <!-- Get User harus di echo -->
     <?php echo $this->session->userdata('nama_user') ?> <br>
     <?php echo $this->session->userdata('level') ?>
