@@ -25,32 +25,37 @@
         function aksi_login(){
 
             $c_username = $this->input->post('f_username');
-            $c_password = $this->input->post('f_pass');
-            // Load function model login
-            $cek = $this->M_login->M_aksi_login($c_username, $c_password);
+            $c_password = $this->input->post('f_password');
+            
+            $where = array(
 
-            if ($cek) {
-                # code... 
-                foreach($cek as $row){
-
-                    $this->session->set_userdata('user',$row->username);
-                    $this->session->set_userdata('level',$row->level);
-
-                    if ($this->session->userdata('level')=="admin") {
-
-                        redirect('C_Home');   
-
-                    }elseif($this->session->userdata('level')=="customer"){
-
-                        redirect('');
-                    }
-                }                                                                               
+                'username' => $c_username,
+                'password' => $c_password
+            );
+            
+            // Konek langsung ke table user di db
+            $cek = $this->M_login->M_aksi_login("tb_user",$where)->num_rows();
+                
+            if($cek > 0){
+        
+                $data_session = array(
+                    'nama' => $c_username,
+                    'status' => "login"
+                    );
+        
+                $this->session->set_userdata($data_session);
+        
+                redirect('C_Home','refresh');
+        
             }else{
-                redirect('C_Login');
+                
+                echo "Username dan password salah !";
             }
+    
         }
 
         function logout(){
+
             $this->session->sess_destroy();
             redirect('C_Login');
         }

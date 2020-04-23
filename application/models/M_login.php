@@ -5,19 +5,11 @@
     
     class M_login extends CI_Model {
         
-        public function M_aksi_login($c_username, $c_password)
+        // $table dari $cek = $this->M_login->M_aksi_login("tb_user",$where)->num_rows();
+        // Tepatnya dari 'tb_user' yaitu table di database
+        public function M_aksi_login($table,$where)
         {
-            $data = array(
-                'username' => $c_username,
-                'password' => $c_password
-            );
-
-            // tabel login
-            $query = $this->db->get_where('tb_user',$data);
-            return $query->result();
-
-            print_r($query);
-
+            return $this->db->get_where($table,$where);
         }
     
     }
