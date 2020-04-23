@@ -37,8 +37,7 @@
 					<span class="login100-form-title p-b-43">
 						Pandaan Footwear Store Login
 					</span>
-					
-					
+										
 					<div class="wrap-input100 validate-input">
 						<input class="input100" type="text" name="f_username">
 						<span class="focus-input100"></span>

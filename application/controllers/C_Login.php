@@ -39,16 +39,16 @@
             if($cek > 0){
         
                 $data_session = array(
-                    'nama' => $c_username,
+                    'nama_user' => $c_username,
                     'status' => "login"
-                    );
+                );
         
                 $this->session->set_userdata($data_session);
         
-                redirect('C_Home','refresh');
+                redirect('C_Admin','refresh');
         
             }else{
-                
+
                 echo "Username dan password salah !";
             }
     

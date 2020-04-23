@@ -3,7 +3,7 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
-class C_Home extends CI_Controller
+class C_Admin extends CI_Controller
 {
     
     public function __construct()
