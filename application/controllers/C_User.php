@@ -51,13 +51,21 @@
         
                 $this->session->set_userdata($data_session);
         
-                redirect('C_Admin','refresh');
+                redirect('C_Admin');
         
             }else{
 
                 echo "Username dan password salah !";
             }
     
+        }
+
+        function register_user(){
+
+            $this->M_User->M_register_user();
+            
+            redirect('C_User');
+            
         }
 
         function logout(){

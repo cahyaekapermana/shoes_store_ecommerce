@@ -33,7 +33,7 @@
 		<div class="container-login100">
 			<div class="wrap-login100">
 
-				<form action="<?php echo site_url('C_User/register_user')?>" class="login100-form validate-form" method="POST">
+				<form action="<?php echo site_url('C_User/aksi_login')?>" class="login100-form validate-form" method="POST">
 					<span class="login100-form-title p-b-43">
 						Buat Akun Baru
 					</span>
@@ -62,12 +62,7 @@
 						<span class="focus-input100"></span>
 						<span class="label-input100">Email</span>
 					</div>
-					
-					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="f_status" value="Customer" disabled>
-						<span class="focus-input100"></span>
-					</div>
-				
+
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" style="background-color: #353b48;">
 							Daftar Sekarang
