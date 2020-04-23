@@ -17,7 +17,14 @@
         public function index()
         {
             $this->load->view('template/header');
-            $this->load->view('Modul_login/V_login');
+            $this->load->view('Modul_auth/V_login');
+            $this->load->view('template/footer');
+        }
+
+        public function register()
+        {
+            $this->load->view('template/header');
+            $this->load->view('Modul_auth/V_register');
             $this->load->view('template/footer');
         }
 

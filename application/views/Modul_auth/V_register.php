@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Login to Pandaan Footwear Store</title>
+	<title>Membuat Akun</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -35,7 +35,7 @@
 
 				<form action="<?php echo site_url('C_User/aksi_login')?>" class="login100-form validate-form" method="POST">
 					<span class="login100-form-title p-b-43">
-						Pandaan Footwear Store Login
+						Buat Akun Baru
 					</span>
 										
 					<div class="wrap-input100 validate-input">
@@ -51,31 +51,30 @@
 						<span class="label-input100">Password</span>
 					</div>
 
-					<div class="flex-sb-m w-full p-t-3 p-b-32">
-						<div class="contact100-form-checkbox">
-							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
-							<label class="label-checkbox100" for="ckb1">
-								Remember me
-							</label>
-						</div>
-
-						<div>
-							<a href="#" class="txt1">
-								Forgot Password?
-							</a>
-						</div>
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="f_nama_lengkap">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Nama Lengkap</span>
 					</div>
-			
+
+					<div class="wrap-input100 validate-input">
+						<input class="input100" type="text" name="f_email">
+						<span class="focus-input100"></span>
+						<span class="label-input100">Email</span>
+					</div>
+
+					<div class="wrap-input100 validate-input">
+						<input type="radio" name="f_status1" value="admin"/>Male
+						<span class="focus-input100"></span>
+						<span class="label-input100">Email</span>
+					</div>
+
+					
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" style="background-color: #353b48;">
-							Masuk
+							Daftar Sekarang
 						</button>
-					</div>
-					
-					<br>
-					<div>
-						<p style="font-size:18px">Belum punya akun? <a style="font-size:18px; color: #40739e;" href="">Daftar Sekarang</a></p>
 					</div>
 					
 					<br>
@@ -94,7 +93,7 @@
 				</form>
                 <!-- BG IMAGE -->
                 <?php 
-                    $img = base_url('assets/login_template/images/bg-shoes.jpg');
+                    $img = base_url('assets/login_template/images/sepatu_yayan.jpg');
                 ?>
 
 				<div class="login100-more" style="background-image: url(' <?php echo $img ?> ')">
