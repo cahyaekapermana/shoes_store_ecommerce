@@ -3,7 +3,7 @@
     
     defined('BASEPATH') OR exit('No direct script access allowed');
     
-    class M_login extends CI_Model {
+    class M_User extends CI_Model {
         
         // $table dari $cek = $this->M_login->M_aksi_login("tb_user",$where)->num_rows();
         // Tepatnya dari 'tb_user' yaitu table di database
