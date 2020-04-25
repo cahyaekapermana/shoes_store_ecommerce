@@ -6,10 +6,8 @@
     <title>Home</title>
 </head>
 <body>
-    <h1>Selamat Datang</h1>
-    <!-- Get User harus di echo -->
-    <?php echo $this->session->userdata('nama_user') ?> <br>
-    <?php echo $this->session->userdata('level') ?>
+    <h1>Welcome <?php echo $this->session->userdata('s_username');?></h1>
+    <h1>Anda Sebagai <?php echo $this->session->userdata('s_level');?> </h1>
 
 </body>
 </html>

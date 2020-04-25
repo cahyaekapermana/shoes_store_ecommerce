@@ -10,16 +10,21 @@ class C_Admin extends CI_Controller
     {
         parent::__construct();
         // Cek session dari login
-        if($this->session->userdata('status') != "login"){
-			redirect(base_url("C_login"));
-		}
+        if($this->session->userdata('logged_in') !== TRUE){
+            redirect('C_User');
+        }
     }
     
 
     public function index()
     {
         $this->load->view('template/header');
-        $this->load->view('Modul_home/V_home');
+        // Allow Access Admin Only
+        if($this->session->userdata('s_level')=="Admin"){
+            $this->load->view('modul_admin/V_home');
+        }else{
+            echo "Access Denied";
+        }
         $this->load->view('template/footer');
     }
 }

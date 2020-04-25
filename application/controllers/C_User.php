@@ -24,38 +24,46 @@
         public function register()
         {
             $this->load->view('template/header');
-            $this->load->view('Modul_auth/V_register');
+            $this->load->view('modul_auth/V_register');
             $this->load->view('template/footer');
         }
 
         function aksi_login(){
 
-            $c_username = $this->input->post('f_username');
-            $c_password = $this->input->post('f_password');
-            
-            $where = array(
+            $c_username = $this->input->post('f_username',TRUE);
+            $c_password = md5($this->input->post('f_password',TRUE));
 
-                'username' => $c_username,
-                'password' => $c_password
-            );
+            $cek = $this->M_User->M_aksi_login($c_username,$c_password);
             
-            // Konek langsung ke table user di db
-            $cek = $this->M_User->M_aksi_login("tb_user",$where)->num_rows();
-                
-            if($cek > 0){
-        
-                $data_session = array(
-                    'nama_user' => $c_username,
-                    'status'    => "login"
+            if ($cek->num_rows() > 0){
+
+                $data  = $cek->row_array();
+                // Inisialisasi variable
+                $name  = $data['username'];
+                $email = $data['email'];
+                $level = $data['level'];
+
+                // memasukan Inisialisasi variable ke dalam Inisialisasi session
+                $sesdata = array(
+                    's_username'  => $name,
+                    's_email'     => $email,
+                    's_level'     => $level,
+                    'logged_in' => TRUE
                 );
+                // Set Userdata
+                $this->session->set_userdata($sesdata);
+                // access login for admin
+                if($level == "Customer"){
+                    redirect('C_Customer');
         
-                $this->session->set_userdata($data_session);
-        
-                redirect('C_Admin');
-        
-            }else{
+                // access login for cust
+                }elseif($level == "Admin"){
+                    redirect('C_Admin');
+                }
 
-                echo "Username dan password salah !";
+            }else{
+                echo $this->session->set_flashdata('msg','Username or Password is Wrong');
+                redirect('C_User');
             }
     
         }

@@ -37,7 +37,9 @@
 					<span class="login100-form-title p-b-43">
 						Pandaan Footwear Store Login
 					</span>
-										
+					<!-- Flashdata -->
+					<?php echo $this->session->flashdata('msg');?>
+					
 					<div class="wrap-input100 validate-input">
 						<input class="input100" type="text" name="f_username">
 						<span class="focus-input100"></span>
@@ -50,7 +52,7 @@
 						<span class="focus-input100"></span>
 						<span class="label-input100">Password</span>
 					</div>
-
+					
 					<div class="flex-sb-m w-full p-t-3 p-b-32">
 						<div class="contact100-form-checkbox">
 							<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">

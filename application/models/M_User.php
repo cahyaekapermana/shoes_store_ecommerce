@@ -7,9 +7,13 @@
         
         // $table dari $cek = $this->M_login->M_aksi_login("tb_user",$where)->num_rows();
         // Tepatnya dari 'tb_user' yaitu table di database
-        function M_aksi_login($table,$where)
+        function M_aksi_login($c_username,$c_password)
         {
-            return $this->db->get_where($table,$where);
+            $this->db->where('username',$c_username);
+            $this->db->where('password',$c_password);
+
+            $result = $this->db->get('tb_user');
+            return $result;
         }
 
         function M_register_user(){
@@ -19,7 +23,6 @@
                 'password'      => $this->input->post('f_password'),
                 'nama_lengkap'  => $this->input->post('f_nama_lengkap'),
                 'email'         => $this->input->post('f_email'),
-                'status'        => $this->input->post('f_status')
             );
 
             $this->db->insert('tb_user', $data);
