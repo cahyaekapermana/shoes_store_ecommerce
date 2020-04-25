@@ -17,12 +17,13 @@
         }
 
         function M_register_user(){
-
+        
             $data = array(
                 'username'      => $this->input->post('f_username'),
-                'password'      => $this->input->post('f_password'),
+                'password'      => md5($this->input->post('f_password')),
                 'nama_lengkap'  => $this->input->post('f_nama_lengkap'),
                 'email'         => $this->input->post('f_email'),
+                'level'         => $this->input->post('f_level')
             );
 
             $this->db->insert('tb_user', $data);

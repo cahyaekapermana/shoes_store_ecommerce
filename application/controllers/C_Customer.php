@@ -10,6 +10,7 @@
         {
             parent::__construct();
             //Do your magic here
+            
             if($this->session->userdata('logged_in') !== TRUE){
                 redirect('C_User');
             }

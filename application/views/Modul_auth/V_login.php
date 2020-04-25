@@ -80,13 +80,6 @@
 					<div>
 						<p style="font-size:18px">Belum punya akun? <a style="font-size:18px; color: #40739e;" href="<?php echo site_url('C_User/register')?>">Daftar Sekarang</a></p>
 					</div>
-					<!-- Link login admin -->
-					<br>
-					<div>
-						<p style="font-size:14px">Anda Admin? Silahkan Login  <a style="font-size:14px; color: #40739e;" href="<?php echo site_url('C_User/register')?>">Disini</a></p>
-					</div>
-					
-
 					
 					<br>
 					<center><span>Follow Us On</span></center>

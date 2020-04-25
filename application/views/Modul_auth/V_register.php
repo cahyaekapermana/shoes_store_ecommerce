@@ -62,12 +62,14 @@
 						<span class="focus-input100"></span>
 						<span class="label-input100">Email</span>
 					</div>
-					
-					<div class="wrap-input100 validate-input">
-						<input class="input100" type="text" name="f_status" value="Customer" disabled>
-						<span class="focus-input100"></span>
-					</div>
-				
+					<br>
+					<span>Mendaftar sebagai? </span>
+					<select name="f_level" style="height:70px;" class="form-control form-control-lg">
+  						<option value="Customer">Customer</option>
+						<option value="Admin">Admin</option>
+					</select>
+					<br>
+
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn" style="background-color: #353b48;">
 							Daftar Sekarang

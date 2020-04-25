@@ -39,6 +39,7 @@
 
                 $data  = $cek->row_array();
                 // Inisialisasi variable
+                // $variable = $data['nama kolom yang mau di cocokan di table']
                 $name  = $data['username'];
                 $email = $data['email'];
                 $level = $data['level'];
@@ -68,6 +69,7 @@
     
         }
 
+    
         function register_user(){
 
             $this->M_User->M_register_user();
