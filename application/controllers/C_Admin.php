@@ -5,27 +5,29 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class C_Admin extends CI_Controller
 {
-    
+
     public function __construct()
     {
         parent::__construct();
         // Cek session dari login
-        if($this->session->userdata('logged_in') !== TRUE){
+        if ($this->session->userdata('logged_in') !== TRUE) {
             redirect('C_User');
         }
     }
-    
+
 
     public function index()
     {
-        $this->load->view('template/header');
+        $this->load->view('template/admin/header');
+
         // Allow Access Admin Only
-        if($this->session->userdata('s_level')=="Admin"){
+        if ($this->session->userdata('s_level') == "Admin") {
             $this->load->view('modul_admin/V_home');
-        }else{
+        } else {
             echo "Access Denied";
         }
-        $this->load->view('template/footer');
+
+        $this->load->view('template/admin/footer');
     }
 }
     
