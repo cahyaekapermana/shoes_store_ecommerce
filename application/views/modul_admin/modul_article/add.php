@@ -60,7 +60,7 @@
                 </a>
                 <div id="collapseArticle" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?php echo site_url('C_Admin/c_article') ?>">Article</a>
+                        <a class="collapse-item" href="<?php echo site_url('C_Admin/c_article') ?>">Article Produk</a>
                         <a class="collapse-item" href="#">Berita</a>
                     </div>
                 </div>

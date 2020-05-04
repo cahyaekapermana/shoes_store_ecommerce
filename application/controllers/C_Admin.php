@@ -60,9 +60,30 @@ class C_Admin extends CI_Controller
         $this->load->view('template/admin/footer');
     }
 
+    public function v_edit_article($id)
+    {
+        $this->load->view('template/admin/header');
+        // Get ID dari table
+        $data = array(
+
+            'tampil_article_id' => $this->M_Admin->M_edit_article_id($id)
+
+        );
+        $this->load->view('modul_admin/modul_article/edit', $data);
+
+        $this->load->view('template/admin/footer');
+    }
+
     public function aksi_tambah_article()
     {
         $this->M_Admin->M_tambah_article();
+
+        redirect('C_Admin/c_article');
+    }
+
+    public function aksi_edit_article()
+    {
+        $this->M_Admin->M_edit_article();
 
         redirect('C_Admin/c_article');
     }

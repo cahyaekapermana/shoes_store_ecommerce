@@ -60,7 +60,7 @@
                 </a>
                 <div id="collapseArticle" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="<?php echo site_url('C_Admin/c_article') ?>">Article</a>
+                        <a class="collapse-item" href="<?php echo site_url('C_Admin/c_article') ?>">Article Produk</a>
                         <a class="collapse-item" href="#">Berita</a>
                     </div>
                 </div>
@@ -302,14 +302,15 @@
                                                 <td><img style="width:100px" class="img-thumbnail" src="<?php echo base_url() ?>assets/admin/img/article/<?php echo $tpl->gambar ?>"> </td>
                                                 <td><?php echo $tpl->judul ?></td>
                                                 <td><?php echo $tpl->deskripsi ?></td>
-                                                <td><?php echo $tpl->backlink ?></td>
-                                                <td>
-                                                    <a style="" href="" class=" btn btn-info btn-icon-split">
+                                                <td><a href="<?php echo $tpl->backlink ?>">Klik!</a></td>
+                                                <td style="text-align:center;">
+                                                    <a href="<?php echo site_url('C_Admin/v_edit_article/' . $tpl->id) ?>" class=" btn btn-info btn-icon-split">
                                                         <span class="icon text-white-50">
                                                             <i class="fas fa-info-circle"></i>
                                                         </span>
                                                         <span class="text">Edit</span>
                                                     </a>
+                                                    <!-- set id untuk modal -->
                                                     <button class="btn btn-danger btn-icon-split" data-target="#modal-hapus-<?php echo $tpl->id ?>" data-toggle="modal">
                                                         <span class="icon text-white-50">
                                                             <i class="fas fa-trash"></i>
@@ -320,21 +321,20 @@
                                             </tr>
                                             <!--Default Bootstrap Modal-->
                                             <!--===================================================-->
+                                            <!-- ambil id -->
                                             <div class="modal fade" id="modal-hapus-<?php echo $tpl->id ?>" role="dialog" tabindex="-1" aria-labelledby="demo-default-modal" aria-hidden="true">
                                                 <div class="modal-dialog">
                                                     <div class="modal-content">
-
                                                         <!--Modal header-->
                                                         <div class="modal-header">
                                                             <button type="button" class="close" data-dismiss="modal"><i class="pci-cross pci-circle"></i></button>
-                                                            <h4 class="modal-title">Konfirmasi!</h4>
+                                                            <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
                                                         </div>
-
                                                         <form action="<?php echo site_url('C_Admin/aksi_hapus_article/' . $tpl->id) ?>" method="POST" enctype="multipart/form-data">
 
                                                             <!--Modal body-->
                                                             <div class="modal-body">
-                                                                <h5>Yakin ingin menghapus data?</h5>
+                                                                <p>Yakin ingin menghapus data?</p>
                                                             </div>
 
                                                             <!--Modal footer-->
@@ -343,15 +343,11 @@
                                                                 <button class="btn btn-danger">Hapus Data</button>
                                                             </div>
                                                         </form>
-
-
                                                     </div>
                                                 </div>
 
                                             <?php } ?>
-
                                     </tbody>
-
 
                                 </table>
                             </div>
