@@ -120,6 +120,54 @@ class M_Admin extends CI_Model
     }
     // ===========================================================================================================================
 
+
+    // ===========================================================================================================================
+    // PRODUK
+    // ===========================================================================================================================
+
+    public function m_tampil_produk()
+    {
+        return $this->db->get('tbl_produk');
+    }
+
+    public function m_tambah_produk()
+    {
+        // configure library
+        $config['upload_path'] = './assets/customer_template/images/'; // path
+        $config['allowed_types'] = 'gif|jpg|png|jpeg'; // extensions
+        $config['max_size']  = 3000; // max 3 mb
+
+        $this->load->library('upload', $config);
+        // Alternately you can set preferences by calling the ``initialize()`` method. Useful if you auto-load the class:
+        $this->upload->initialize($config);
+
+        $tempImage = ""; // temporary
+        // check requirement upload 
+        if ($this->upload->do_upload('f_img')) {
+
+            $uploadData = $this->upload->data();
+            // print_r( $uploadData );
+
+            $tempImage = $uploadData['file_name']; // 
+            // echo '1';
+
+        } else {
+
+            // check message if error 
+            print_r($this->upload->display_errors());
+        }
+
+        $data = array(
+
+            'nama_produk'       => $this->input->post('f_nama'),
+            'deskripsi'         => $this->input->post('f_deskripsi'),
+            'harga'             => $this->input->post('f_harga'),
+            'kategori'          => $this->input->post('f_kategori'),
+            'gambar'            => $tempImage
+        );
+
+        $this->db->insert('tbl_produk', $data);
+    }
 }
     
     /* End of file M_Admin.php */

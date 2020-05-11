@@ -54,11 +54,11 @@ class C_User extends CI_Controller
             $this->session->set_userdata($sesdata);
             // access login for admin
             if ($level == "Customer") {
-                redirect('C_Customer');
+                redirect('c_customer');
 
                 // access login for cust
             } elseif ($level == "Admin") {
-                redirect('C_Admin');
+                redirect('c_admin');
             }
         } else {
             echo $this->session->set_flashdata('msg', '<div class="alert alert-danger" role="alert">

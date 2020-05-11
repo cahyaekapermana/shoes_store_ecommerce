@@ -42,11 +42,11 @@
 
             <!-- Produk -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseProduk" aria-expanded="true" aria-controls="collapseProduk">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Produk</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseProduk" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="collapse-item" href="<?php echo site_url('c_admin/c_dataproduk') ?>">Data Produk</a>
                     </div>
@@ -265,56 +265,101 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Hello <?php echo $this->session->userdata('s_username'); ?></h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div>
+                    <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">DataTables Produk</h6>
+                        </div>
+                        <!-- Add Btn -->
+                        <div class="card-header py-4">
+                            <span><b>Klik button dibawah untuk menambahkan data</b></span>
+                            <br><br>
+                            <a href="<?php echo site_url('c_admin/v_tambah_produk') ?>" class="btn btn-primary btn-icon-split">
+                                <span class="text">Tambah Data</span>
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Gambar</th>
+                                            <th>Nama Produk</th>
+                                            <th>Deskripsi</th>
+                                            <th>Harga</th>
+                                            <th>Kategori</th>
+                                        </tr>
+                                    </thead>
 
+                                    <tbody>
+
+                                        <?php $no = 1;
+                                        foreach ($tampil_produk->result() as $tpl) { ?>
+
+                                            <tr>
+                                                <td><?php echo $no++ ?></td>
+                                                <td><img style="width:100px" class="img-thumbnail" src="<?php echo base_url() ?>assets/customer_template/images/<?php echo $tpl->gambar ?>"> </td>
+                                                <td><?php echo $tpl->nama_produk ?></td>
+                                                <td><?php echo $tpl->deskripsi ?></td>
+                                                <td><?php echo $tpl->harga ?></td>
+                                                <td><?php echo $tpl->kategori ?></td>
+                                            </tr>
+
+                                        <?php } ?>
+                                    </tbody>
+
+                                </table>
+                            </div>
+                        </div>
+                        <!-- End of Main Content -->
+
+                        <!-- Footer -->
+                        <footer class="sticky-footer bg-white">
+                            <div class="container my-auto">
+                                <div class="copyright text-center my-auto">
+                                    <span>Copyright &copy; Your Website 2019</span>
+                                </div>
+                            </div>
+                        </footer>
+                        <!-- End of Footer -->
+
+                    </div>
+                    <!-- End of Content Wrapper -->
 
                 </div>
-                <!-- End of Main Content -->
+                <!-- End of Page Wrapper -->
 
-                <!-- Footer -->
-                <footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
-                        <div class="copyright text-center my-auto">
-                            <span>Copyright &copy; Your Website 2019</span>
+                <!-- Scroll to Top Button-->
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
+
+            </div>
+            <!--===================================================-->
+
+            <!-- Logout Modal-->
+            <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Yakin Ingin Logout?</h5>
+                            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">Klik "Logout" untuk keluar.</div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                            <a class="btn btn-primary" href="<?php echo site_url('C_User/logout') ?>">Logout</a>
                         </div>
                     </div>
-                </footer>
-                <!-- End of Footer -->
-
-            </div>
-            <!-- End of Content Wrapper -->
-
-        </div>
-        <!-- End of Page Wrapper -->
-
-        <!-- Scroll to Top Button-->
-        <a class="scroll-to-top rounded" href="#page-top">
-            <i class="fas fa-angle-up"></i>
-        </a>
-
-        <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Yakin Ingin Logout?</h5>
-                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">Klik "Logout" untuk keluar.</div>
-                    <div class="modal-footer">
-                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="<?php echo site_url('C_User/logout') ?>">Logout</a>
-                    </div>
                 </div>
             </div>
-        </div>
-
 </body>
 
 </html>
+
+
+
+<!-- <?php echo site_url('C_Admin/aksi_hapus_article/' . $tpl->id) ?> -->

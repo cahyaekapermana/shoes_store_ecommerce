@@ -27,7 +27,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="<?php echo site_url('c_admin') ?>">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -48,7 +48,7 @@
                 </a>
                 <div id="collapseUtilities" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="">Data Produk</a>
+                        <a class="collapse-item" href="<?php echo site_url('c_admin/c_dataproduk') ?>">Data Produk</a>
                     </div>
                 </div>
             </li>
