@@ -44,6 +44,7 @@
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="active"><a href="<?php echo site_url('c_customer') ?>">Home</a></li>
+                    <li class="active"><a href="<?php echo site_url('c_customer/v_tampil_article') ?>">Article</a></li>
                     <!-- Controller  -->
                     <li class="active"><a href="<?php echo site_url('c_customer/tampil_cart') ?>"><i class="glyphicon glyphicon-shopping-cart"></i> Keranjang Belanja</a></li>
                     <li class="active">

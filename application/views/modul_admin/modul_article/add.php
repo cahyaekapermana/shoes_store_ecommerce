@@ -281,10 +281,7 @@
                                     <label>Deskripsi</label>
                                     <textarea class="form-control" name="f_deskripsi" rows="3"></textarea>
                                 </div>
-                                <div class="form-group">
-                                    <label>Backlink</label>
-                                    <input type="text" class="form-control" name="f_backlink" placeholder="Ketik Disini...">
-                                </div>
+                
                                 <div class="form-group">
                                     <label>Upload Gambar</label>
                                     <input type="file" name="f_img" class="form-control-file">

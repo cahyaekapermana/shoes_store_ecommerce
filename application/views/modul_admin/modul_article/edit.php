@@ -274,7 +274,7 @@
                         <div class="card-body">
                             <form action="<?php echo site_url('C_Admin/aksi_edit_article') ?>" method="POST" enctype="multipart/form-data">
 
-                                <!-- GET ID dari table -->
+                                <!-- Kalau meletakan id wajib di dalam form  -->
                                 <input type="hidden" value="<?php echo $tampil_article_id['id'] ?>" name="id_article">
 
                                 <div class="form-group">
@@ -285,10 +285,7 @@
                                     <label>Deskripsi</label>
                                     <textarea class="form-control" name="f_deskripsi" rows="3"><?php echo $tampil_article_id['deskripsi'] ?></textarea>
                                 </div>
-                                <div class="form-group">
-                                    <label>Backlink</label>
-                                    <input type="text" class="form-control" name="f_backlink" value="<?php echo $tampil_article_id['backlink'] ?>">
-                                </div>
+                                
                                 <div class="form-group">
                                     <label>Gambar Sebelumnya : </label><br>
                                     <div class="panel-body">

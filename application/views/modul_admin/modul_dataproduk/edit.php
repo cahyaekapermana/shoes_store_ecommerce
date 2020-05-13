@@ -268,31 +268,49 @@
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Edit Data Article</h6>
+                            <h6 class="m-0 font-weight-bold text-primary">Edit Data Produk</h6>
                         </div>
 
                         <div class="card-body">
-                            <form action="<?php echo site_url('C_Admin/aksi_edit_article') ?>" method="POST" enctype="multipart/form-data">
+                            <!-- Embed Id roduk untuk get detaul produk -->
+                            <form action="<?php echo site_url('C_Admin/aksi_edit_produk') ?>" method="POST" enctype="multipart/form-data">
 
-                                <!-- GET ID dari table -->
-                                <input type="hidden" value="<?php echo $tampil_article_id['id'] ?>" name="id_article">
+                                <!-- Kalau meletakan id wajib di dalam form  -->
+                                <input type="hidden" value="<?php echo $tampil_produk_id['id_produk'] ?>" name="f_id_produk">
 
                                 <div class="form-group">
-                                    <label>Judul</label>
-                                    <input type="text" class="form-control" name="f_judul" value="<?php echo $tampil_article_id['judul'] ?>">
+                                    <label>Nama Produk</label>
+                                    <input type="text" class="form-control" name="f_nama" value="<?php echo $tampil_produk_id['nama_produk'] ?>">
                                 </div>
                                 <div class="form-group">
                                     <label>Deskripsi</label>
-                                    <textarea class="form-control" name="f_deskripsi" rows="3"><?php echo $tampil_article_id['deskripsi'] ?></textarea>
+                                    <textarea class="form-control" name="f_deskripsi" rows="3"><?php echo $tampil_produk_id['deskripsi'] ?></textarea>
                                 </div>
                                 <div class="form-group">
-                                    <label>Backlink</label>
-                                    <input type="text" class="form-control" name="f_backlink" value="<?php echo $tampil_article_id['backlink'] ?>">
+                                    <label>Harga</label>
+                                    <input type="text" class="form-control" name="f_harga" value="<?php echo $tampil_produk_id['harga'] ?>">
                                 </div>
+                                <!-- <div class="form-group">
+                                    <label>Kategori</label>
+                                    <input type="text" class="form-control" name="f_kategori" value="<?php echo $tampil_produk_id['kategori'] ?>">
+                                </div> -->
+                                <label>Kategori Produk</label>
+                                <div class="form-group">
+                                    <select name="f_kategori" class="form-control" data-live-search="true" data-width="100%" required>
+                                        <!-- Ambil nama bank dari data bank -->
+                                        <?php foreach ($get_kategori->result() as $tpl) { ?>
+
+                                            <option value="<?php echo $tpl->id ?>"><?php echo $tpl->nama_kategori ?></option>
+
+                                        <?php } ?>
+                                    </select>
+                                </div>
+
+
                                 <div class="form-group">
                                     <label>Gambar Sebelumnya : </label><br>
                                     <div class="panel-body">
-                                        <img src="<?php echo base_url() ?>assets/admin/img/article/<?php echo $tampil_article_id['gambar']; ?>" style="width:100px">
+                                        <img src="<?php echo base_url() ?>assets/customer_template/images/<?php echo $tampil_produk_id['gambar']; ?>" style="width:100px">
                                     </div>
                                     <label>Ubah Gambar</label>
                                     <input type="file" name="f_img" class="form-control-file">

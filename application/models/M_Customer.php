@@ -53,6 +53,18 @@ class M_Customer extends CI_Model
     {
         $this->db->insert('tbl_detail_order', $data);
     }
+
+    // Get article 
+    public function M_tampil_article()
+    {
+        # code...
+        return $this->db->get('tb_article');
+    }
+
+    public function get_article_id($id)
+    {
+        return $this->db->get_where('tb_article', ['id' => $id])->row_array();
+    }
 }
     
     /* End of file M_Customer.php */

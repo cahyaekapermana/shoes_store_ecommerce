@@ -285,10 +285,22 @@
                                     <label>Harga</label>
                                     <input type="text" class="form-control" name="f_harga" placeholder="Ketik Disini...">
                                 </div>
-                                <div class="form-group">
+                                <!-- <div class="form-group">
                                     <label>Kategori</label>
                                     <input type="text" class="form-control" name="f_kategori" placeholder="Ketik Disini...">
+                                </div> -->
+                                <label>Kategori Produk</label>
+                                <div class="form-group">
+                                    <select name="f_kategori" class="form-control" data-live-search="true" data-width="100%" required>
+                                        <!-- Ambil nama bank dari data bank -->
+                                        <?php foreach ($get_kategori->result() as $tpl) { ?>
+
+                                            <option value="<?php echo $tpl->id ?>"><?php echo $tpl->nama_kategori ?></option>
+
+                                        <?php } ?>
+                                    </select>
                                 </div>
+
                                 <div class="form-group">
                                     <label>Upload Gambar</label>
                                     <input type="file" name="f_img" class="form-control-file">

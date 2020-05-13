@@ -170,6 +170,35 @@ class C_Customer extends CI_Controller
         $this->load->view('modul_customer/sukses', $data);
         $this->load->view('template/customer/footer');
     }
+
+    // Frontend Article
+
+    public function v_tampil_article()
+    {
+
+        $data = array(
+
+            'tampil_article' => $this->m_customer->M_tampil_article(),
+            'kategori' => $this->m_customer->get_kategori_all()
+        );
+
+        $this->load->view('template/customer/header', $data);
+        $this->load->view('modul_customer/article', $data);
+        $this->load->view('template/customer/footer');
+    }
+
+    public function v_detail_article($id)
+    {
+        $data = array(
+
+            'tampil_article_id' => $this->m_customer->get_article_id($id),
+            'kategori' => $this->m_customer->get_kategori_all()
+        );
+        # code...
+        $this->load->view('template/customer/header', $data);
+        $this->load->view('modul_customer/detail_article', $data);
+        $this->load->view('template/customer/footer');
+    }
 }
     
     /* End of file C_Customer.php */

@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $this->session->userdata('s_level'); ?></title>
+    <!-- Font Awesome -->
+    <script src="https://use.fontawesome.com/2344d2fc85.js"></script>
 </head>
 
 <body id="page-top">
@@ -289,6 +291,8 @@
                                             <th>Deskripsi</th>
                                             <th>Harga</th>
                                             <th>Kategori</th>
+                                            <th>Opsi Edit</th>
+                                            <th>Opsi Hapus</th>
                                         </tr>
                                     </thead>
 
@@ -304,9 +308,56 @@
                                                 <td><?php echo $tpl->deskripsi ?></td>
                                                 <td><?php echo $tpl->harga ?></td>
                                                 <td><?php echo $tpl->kategori ?></td>
+                                                <td>
+                                                    <a class=" btn btn-info btn-icon-split btn-sm" href="<?php echo site_url('C_Admin/v_edit_produk/' . $tpl->id_produk) ?>">
+                                                        <span class="icon ">
+                                                            <i class="fa fa-pencil"></i>
+                                                        </span>
+                                                        <span class="text">Edit</span>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <!-- set id untuk modal -->
+                                                    <button class="btn btn-danger btn-icon-split btn-sm" data-target="#modal-hapus-<?php echo $tpl->id_produk ?>" data-toggle="modal">
+                                                        <span class="icon ">
+                                                            <i class="fas fa-trash"></i>
+                                                        </span>
+                                                        <span class="text">Hapus</span>
+                                                    </button>
+                                                </td>
                                             </tr>
 
-                                        <?php } ?>
+                                            <!--Default Bootstrap Modal-->
+                                            <!--===================================================-->
+                                            <!-- ambil id -->
+                                            <!-- WAJIB MENYERTAKAN ID DALAM MODAL JIKA MAU MENGHAPUS DATA YANG SPESIFIK -->
+                                            <div class="modal fade" id="modal-hapus-<?php echo $tpl->id_produk ?>" role="dialog" tabindex="-1" aria-labelledby="demo-default-modal" aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <div class="modal-content">
+                                                        <!--Modal header-->
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal"><i class="pci-cross pci-circle"></i></button>
+                                                            <h5 class="modal-title" id="exampleModalLabel">Konfirmasi</h5>
+                                                        </div>
+                                                        <form action="<?php echo site_url('C_Admin/aksi_hapus_produk/' . $tpl->id_produk) ?>" method="POST" enctype="multipart/form-data">
+
+                                                            <!--Modal body-->
+                                                            <div class="modal-body">
+                                                                <p>Yakin ingin menghapus data?</p>
+                                                            </div>
+
+                                                            <!--Modal footer-->
+                                                            <div class="modal-footer">
+                                                                <button data-dismiss="modal" class="btn btn-default" type="button">Batal</button>
+                                                                <button class="btn btn-danger">Hapus Data</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
+                                                </div>
+
+
+
+                                            <?php } ?>
                                     </tbody>
 
                                 </table>
@@ -359,7 +410,3 @@
 </body>
 
 </html>
-
-
-
-<!-- <?php echo site_url('C_Admin/aksi_hapus_article/' . $tpl->id) ?> -->

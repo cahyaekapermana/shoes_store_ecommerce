@@ -287,7 +287,6 @@
                                             <th>Gambar</th>
                                             <th>Judul</th>
                                             <th>Deskripsi</th>
-                                            <th>Backlink Produk</th>
                                             <th>Opsi</th>
                                         </tr>
                                     </thead>
@@ -302,16 +301,15 @@
                                                 <td><img style="width:100px" class="img-thumbnail" src="<?php echo base_url() ?>assets/admin/img/article/<?php echo $tpl->gambar ?>"> </td>
                                                 <td><?php echo $tpl->judul ?></td>
                                                 <td><?php echo $tpl->deskripsi ?></td>
-                                                <td><a href="<?php echo $tpl->backlink ?>">Klik!</a></td>
                                                 <td style="text-align:center;">
-                                                    <a href="<?php echo site_url('C_Admin/v_edit_article/' . $tpl->id) ?>" class=" btn btn-info btn-icon-split">
+                                                    <a class=" btn btn-info btn-sm btn-icon-split" href="<?php echo site_url('C_Admin/v_edit_article/' . $tpl->id) ?>">
                                                         <span class="icon text-white-50">
                                                             <i class="fas fa-info-circle"></i>
                                                         </span>
                                                         <span class="text">Edit</span>
                                                     </a>
                                                     <!-- set id untuk modal -->
-                                                    <button class="btn btn-danger btn-icon-split" data-target="#modal-hapus-<?php echo $tpl->id ?>" data-toggle="modal">
+                                                    <button class="btn btn-danger btn-sm btn-icon-split" data-target="#modal-hapus-<?php echo $tpl->id ?>" data-toggle="modal">
                                                         <span class="icon text-white-50">
                                                             <i class="fas fa-trash"></i>
                                                         </span>

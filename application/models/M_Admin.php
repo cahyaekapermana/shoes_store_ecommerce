@@ -130,6 +130,16 @@ class M_Admin extends CI_Model
         return $this->db->get('tbl_produk');
     }
 
+    public function m_get_kategori()
+    {
+        return $this->db->get('tbl_kategori');
+    }
+
+    public function m_edit_produk_id($id)
+    {
+        return $this->db->get_where('tbl_produk', ['id_produk' => $id])->row_array();
+    }
+
     public function m_tambah_produk()
     {
         // configure library
@@ -167,6 +177,69 @@ class M_Admin extends CI_Model
         );
 
         $this->db->insert('tbl_produk', $data);
+    }
+
+    public function m_edit_produk()
+    {
+        // Dari view
+        $id = $this->input->post('f_id_produk');
+
+        // configure library
+        $config['upload_path'] = './assets/customer_template/images/'; // path
+        $config['allowed_types'] = 'gif|jpg|png|jpeg'; // extensions
+        $config['max_size']  = 3000; // max 3 mb
+
+        $this->load->library('upload', $config); // set all configure to library upload
+        // Alternately you can set preferences by calling the ``initialize()`` method. Useful if you auto-load the class:
+        $this->upload->initialize($config);
+        // Temp Edit nampung gambar
+        $tempImageEdit = "";
+
+        // Get data old -> id
+        $getOldData = $this->m_edit_produk_id($id);
+
+        // Cek 
+        if ($_FILES['f_img']['name']) {
+            # code...
+            if ($this->upload->do_upload('f_img')) {
+                # code...
+                $tempImageEdit = $this->upload->data('file_name');
+
+                if ($getOldData['gambar']) {
+                    // Dir Penyimpanan Gambar
+                    $dir = 'assets/customer_template/images/' . $getOldData['gambar'];
+
+                    // Hapus Gambar Lama
+                    unlink($dir);
+                }
+            }
+        } else {
+
+            if ($getOldData['gambar']) {
+                # code...
+                $tempImageEdit = $getOldData['gambar'];
+            }
+        }
+
+        $data = array(
+
+            'nama_produk'       => $this->input->post('f_nama'),
+            'deskripsi'         => $this->input->post('f_deskripsi'),
+            'harga'             => $this->input->post('f_harga'),
+            'kategori'          => $this->input->post('f_kategori'),
+            'gambar'            => $tempImageEdit
+        );
+
+        // Form id di menu edits
+        $this->db->where('id_produk', $id);
+        $this->db->update('tbl_produk', $data);
+    }
+
+    public function m_hapus_produk($id)
+    {
+        # code...
+        $this->db->where('id_produk', $id);
+        $this->db->delete('tbl_produk');
     }
 }
     
