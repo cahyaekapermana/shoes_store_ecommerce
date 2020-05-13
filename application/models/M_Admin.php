@@ -50,7 +50,6 @@ class M_Admin extends CI_Model
 
             'judul'     => $this->input->post('f_judul'),
             'deskripsi' => $this->input->post('f_deskripsi'),
-            'backlink'  => $this->input->post('f_backlink'),
             'gambar'    => $tempImage
         );
 
@@ -103,7 +102,6 @@ class M_Admin extends CI_Model
 
             'judul'     => $this->input->post('f_judul'),
             'deskripsi' => $this->input->post('f_deskripsi'),
-            'backlink'  => $this->input->post('f_backlink'),
             'gambar'    => $tempImageEdit
         );
 
